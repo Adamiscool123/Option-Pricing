@@ -1,0 +1,10 @@
+^C:\USERS\ADAMI\ONEDRIVE\DOCUMENTS\OPTIONS PRICING\BUILD\CMAKEFILES\A69D00AE09003D6B1DC7FCA5A7F392B9\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/adami/OneDrive/Documents/Options Pricing" "-BC:/Users/adami/OneDrive/Documents/Options Pricing/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/adami/OneDrive/Documents/Options Pricing/build/OptionsPricing.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

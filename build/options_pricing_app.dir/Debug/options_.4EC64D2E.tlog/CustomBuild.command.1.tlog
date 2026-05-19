@@ -1,0 +1,10 @@
+^C:\USERS\ADAMI\ONEDRIVE\DOCUMENTS\OPTIONS PRICING\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/adami/OneDrive/Documents/Options Pricing" "-BC:/Users/adami/OneDrive/Documents/Options Pricing/build" --check-stamp-file "C:/Users/adami/OneDrive/Documents/Options Pricing/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
