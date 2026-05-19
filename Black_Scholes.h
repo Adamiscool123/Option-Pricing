@@ -9,7 +9,13 @@ public:
     double risk_free_interest_rate;    // r: annual risk-free rate as decimal
     double volatility;                 // σ: annual volatility as decimal
 
-    int black_scholes(double, double, double, double, double);
+    double call(double, double, double, double, double);
+
+    double put(double, double, double, double, double);
+
+    double d1(double, double, double, double, double);
+
+    double d2(double, double, double, double, double, double);
 };
 
 #endif
