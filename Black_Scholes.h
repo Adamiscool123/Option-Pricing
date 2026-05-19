@@ -16,6 +16,8 @@ public:
     double d1(double, double, double, double, double);
 
     double d2(double, double, double, double, double, double);
+
+    double N(double x);
 };
 
 #endif
