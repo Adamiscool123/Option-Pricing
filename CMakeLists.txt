@@ -7,9 +7,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(options_pricing STATIC
-    Black_Scholes.c++
-    Binomial_Tree.c++
-    Monte_Carlo.c++
+    Black_Scholes.cpp
+    Binomial_Tree.cpp
+    Monte_Carlo.cpp
 )
 
 target_include_directories(options_pricing
@@ -18,7 +18,7 @@ target_include_directories(options_pricing
 )
 
 add_executable(options_pricing_app
-    test.c++
+    test.cpp
 )
 
 target_link_libraries(options_pricing_app
