@@ -1,44 +1,49 @@
 #include "Black_Scholes.h"
 #include <cmath>
 
-double Black_Scholes::call(double current_price, double strike_price, double time_expiration, double risk_free_interest_rate, double volatility){
+double Black_Scholes::call(double current_price, double strike_price, double time_expiration, double risk_free_interest_rate, double volatility)
+{
     double n1 = d1(current_price, strike_price, time_expiration, risk_free_interest_rate, volatility);
 
     double n2 = d2(current_price, strike_price, time_expiration, risk_free_interest_rate, volatility, n1);
 
-    double result = (current_price*N(n1))-(strike_price*(std::exp((-time_expiration*risk_free_interest_rate)))*N(n2));
+    double result = (current_price * N(n1)) - (strike_price * (std::exp((-time_expiration * risk_free_interest_rate))) * N(n2));
 
-    return result;  
+    return result;
 }
 
-double Black_Scholes::put(double current_price, double strike_price, double time_expiration, double risk_free_interest_rate, double volatility){
+double Black_Scholes::put(double current_price, double strike_price, double time_expiration, double risk_free_interest_rate, double volatility)
+{
     double n1 = d1(current_price, strike_price, time_expiration, risk_free_interest_rate, volatility);
 
     double n2 = d2(current_price, strike_price, time_expiration, risk_free_interest_rate, volatility, n1);
 
-    double result = (strike_price*(std::exp((-time_expiration*risk_free_interest_rate)))*N(-n2))-(current_price*N(-n1));
+    double result = (strike_price * (std::exp((-time_expiration * risk_free_interest_rate))) * N(-n2)) - (current_price * N(-n1));
 
     return result;
 }
 
-double Black_Scholes::d1(double current_price, double strike_price, double time_expiration, double risk_free_interest_rate, double volatility){
-    double result = d2+(volatility*sqrt(time_expiration));
+double Black_Scholes::d1(double current_price, double strike_price, double time_expiration, double risk_free_interest_rate, double volatility, double d2)
+{
+    double result = d2 + (volatility * sqrt(time_expiration));
 
     return result;
 }
 
-double Black_Scholes::d2(double current_price, double strike_price, double time_expiration, double risk_free_interest_rate, double volatility, double d1){
+double Black_Scholes::d2(double current_price, double strike_price, double time_expiration, double risk_free_interest_rate, double volatility1)
+{
     double volatilitySquared = volatility * volatility;
 
-    double first_part = (std::log((current_price/strike_price))+(risk_free_interest_rate-(volatilitySquared/2))*time_expiration);
+    double first_part = (std::log((current_price / strike_price)) + (risk_free_interest_rate - (volatilitySquared / 2)) * time_expiration);
 
-    double second_part = volatility*sqrt(time_expiration);
+    double second_part = volatility * sqrt(time_expiration);
 
-    double result = first_part/second_part;
+    double result = first_part / second_part;
 
     return result;
 }
 
-double Black_Scholes::N(double x) {
+double Black_Scholes::N(double x)
+{
     return 0.5 * (1.0 + std::erf(x / std::sqrt(2.0)));
 }
