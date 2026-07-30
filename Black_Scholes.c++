@@ -3,9 +3,9 @@
 
 double Black_Scholes::call(double current_price, double strike_price, double time_expiration, double risk_free_interest_rate, double volatility)
 {
-    double n1 = d1(current_price, strike_price, time_expiration, risk_free_interest_rate, volatility);
+    double n2 = d2(current_price, strike_price, time_expiration, risk_free_interest_rate, volatility);
 
-    double n2 = d2(current_price, strike_price, time_expiration, risk_free_interest_rate, volatility, n1);
+    double n1 = d1(current_price, strike_price, time_expiration, risk_free_interest_rate, volatility, n2);
 
     double result = (current_price * N(n1)) - (strike_price * (std::exp((-time_expiration * risk_free_interest_rate))) * N(n2));
 
