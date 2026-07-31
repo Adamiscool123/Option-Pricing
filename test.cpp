@@ -1,7 +1,7 @@
 #include "Black_Scholes.h"
 #include <iostream>
 
-int main(void)
+void black_scholes()
 {
     Black_Scholes s;
 
@@ -62,6 +62,12 @@ int main(void)
         std::cout << std::endl
                   << "Put Price: " << output << std::endl;
     }
+}
+
+int main(void)
+{
+    
+
 
     return 0;
 }
