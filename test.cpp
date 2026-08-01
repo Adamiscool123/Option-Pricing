@@ -65,7 +65,7 @@ void black_scholes()
     }
 }
 
-int main(void)
+void monte_carlo()
 {
     Monte_Carlo s;
 
@@ -126,6 +126,9 @@ int main(void)
         std::cout << std::endl
                   << "Put Price: " << output << std::endl;
     }
+}
 
+int main(void)
+{
     return 0;
 }
