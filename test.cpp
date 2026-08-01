@@ -121,7 +121,7 @@ int main(void)
     }
     else
     {
-        // output = s.put(current_price, strike_price, time_expiration, risk_free_interest_rate, volatility);
+        output = s.put(current_price, strike_price, time_expiration, risk_free_interest_rate, volatility);
 
         std::cout << std::endl
                   << "Put Price: " << output << std::endl;

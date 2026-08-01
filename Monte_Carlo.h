@@ -21,6 +21,7 @@ public:
     double call(double, double, double, double, double);
     double second_part_call(double, double, double, double, double);
     double put(double, double, double, double, double);
+    double second_part_put(double, double, double, double, double);
     double st(double, double, double, double, double, double);
 };
 
