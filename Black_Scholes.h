@@ -24,6 +24,7 @@ public:
 #endif
 
 /*
+
 Explantion:
 
 You have 2 types of equtions call and put.

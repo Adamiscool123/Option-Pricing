@@ -2,14 +2,14 @@
 #include <cmath>
 #include <random>
 
-double call(double s, double k, double r, double T)
+double call(double s, double k, double r, double T, double V)
 {
     double fp = std::exp(-r * T);
 
-    double sp = second_part_call(s, k, r, T);
+    double sp = second_part_call(s, k, r, T, V);
 }
 
-double second_part_call(double s, double k, double r, double T)
+double second_part_call(double s, double k, double r, double T, double V)
 {
     std::random_device rd;
 
@@ -23,7 +23,7 @@ double second_part_call(double s, double k, double r, double T)
 
         double number = dis(gen);
 
-        double s = st(number);
+        double s = st(number, s, k, r, T, V);
 
         if (s <= k)
         {
@@ -31,11 +31,22 @@ double second_part_call(double s, double k, double r, double T)
         }
         else
         {
-            return s;
+            return (s - k);
         }
     }
 }
 
-double st(double n)
+double st(double n, double s, double k, double r, double T, double V)
 {
+    double v_sqr = V * V;
+
+    double first_part = (r - (v_sqr / 2)) * T;
+
+    double second_Part = V * std::sqrt(T) * n;
+
+    double e_part = std::exp(first_part + second_Part);
+
+    double result = s * e_part;
+
+    return result;
 }
