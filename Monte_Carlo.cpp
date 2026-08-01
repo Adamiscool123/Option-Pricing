@@ -23,11 +23,19 @@ double second_part_call(double s, double k, double r, double T)
 
         double number = dis(gen);
 
-        st(number);
+        double s = st(number);
+
+        if (s <= k)
+        {
+            return 0;
+        }
+        else
+        {
+            return s;
+        }
     }
 }
 
 double st(double n)
 {
-    
 }
